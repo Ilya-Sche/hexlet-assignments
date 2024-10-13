@@ -4,10 +4,9 @@
 require 'uri'
 require 'cgi'
 require 'forwardable'
-
 class Url
-    include Forwardable
-    def_delegators :@uri, :scheme, :host, :port
+  include Forwardable
+  def_delegators :@uri, :scheme, :host, :port
 
   def initialize(url)
     @uri = URI.parse(url)
