@@ -12,6 +12,8 @@ class StackTest < Minitest::Test
 
   def test_push_element
     @stack.push!(5)
+    @stack.to_a
+    @stack.size
     assert_equal [5], @stack.elements
   end
 
@@ -19,18 +21,22 @@ class StackTest < Minitest::Test
     @stack.push!(1)
     @stack.push!(2)
     @stack.push!(3)
+    @stack.to_a
     @stack.pop!
+    @stack.size
     assert_equal [1, 2], @stack.elements
   end
 
   def test_element_delete
     @stack.push!(1)
+    @stack.to_a
     @stack.clear!
     assert_equal [], @stack.elements
   end
 
   def test_element_empty?
     @stack.push!(1)
+    @stack.size
     assert !@stack.empty?
   end
   # END

@@ -4,6 +4,7 @@ class Stack
   def elements
     @elements
   end
+
   def initialize(elements = [])
     @elements = elements
   end
