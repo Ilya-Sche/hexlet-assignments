@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Stack
-  
   def elements
     @elements
   end
