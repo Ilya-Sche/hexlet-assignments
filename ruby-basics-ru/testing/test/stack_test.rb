@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'minitest/autorun'
 require_relative 'test_helper'
 require_relative '../lib/stack'
@@ -10,12 +11,12 @@ class StackTest < Minitest::Test
   end
 
   def test_push_element
-    @stack.push!(5) 
+    @stack.push!(5)
     assert_equal [5], @stack.elements
   end
 
   def test_pop_element
-    @stack.push!(1) 
+    @stack.push!(1)
     @stack.push!(2)
     @stack.push!(3)
     @stack.pop!
