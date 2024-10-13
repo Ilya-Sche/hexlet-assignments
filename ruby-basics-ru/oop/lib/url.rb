@@ -5,7 +5,7 @@ require 'uri'
 require 'cgi'
 require 'forwardable'
 class Url
-  include Forwardable
+  extend Forwardable
   def_delegators :@uri, :scheme, :host, :port
 
   def initialize(url)
@@ -14,6 +14,7 @@ class Url
 
   def query_params
     return {} unless @uri.query
+
     CGI.parse(@uri.query).transform_values { |v| v.size > 1 ? v : v.first }
   end
 
@@ -24,11 +25,13 @@ class Url
   include Comparable
   def ==(other)
     return false unless other.is_a?(Url)
+
     @uri.to_s == other.to_s
   end
 
   def <=>(other)
     return nil unless other.is_a?(Url)
+
     @uri.to_s <=> other.to_s
   end
 end
