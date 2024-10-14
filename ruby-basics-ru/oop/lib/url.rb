@@ -15,7 +15,8 @@ class Url
   def query_params
     return {} unless @uri.query
 
-    CGI.parse(@uri.query).transform_keys(&:to_sym).transform_values |v| v.size > 1 ? v : v.first
+    CGI.parse(@uri.query).transform_keys(&:to_sym).transform_values do |v| v.size > 1 ? v : v.first
+    end
   end
 
   def query_param(key, default = nil)
