@@ -15,7 +15,7 @@ class Url
   def query_params
     return {} unless @uri.query
 
-    CGI.parse(@uri.query).transform_keys(&:to_sym).transform_values { |v| v.size > 1 ? v : v.first }
+    CGI.parse(@uri.query).transform_keys(&:to_sym).transform_values { |v| v.size > 1 ? v : v.first }.to_h
   end
 
   def query_param(key, default = nil)
@@ -38,7 +38,7 @@ class Url
   def ==(other)
     return false unless other.is_a?(Url)
 
-    self.sorted_params == other.sorted_params
+    sorted_params == other.sorted_params
   end
 
   def <=>(other)
