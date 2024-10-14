@@ -26,7 +26,7 @@ class Url
   def sorted_params
     return {} unless @uri.query
 
-    params = CGI.parse(uri.query)
+    params = CGI.parse(@uri.query)
     sorted_params = params.map { |key, values| [key, values.first] }.to_h
     sorted_params.sort.to_h
   end
