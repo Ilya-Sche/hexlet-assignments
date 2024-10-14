@@ -39,6 +39,9 @@ class Url
   def ==(other)
     return false unless other.is_a?(Url)
 
+    scheme == other.scheme &&
+    host == other.host &&
+    port == other.port &&
     sorted_params == other.sorted_params
   end
 
