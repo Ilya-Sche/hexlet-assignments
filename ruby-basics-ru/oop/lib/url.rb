@@ -27,7 +27,7 @@ class Url
     return {} unless @uri.query
 
     params = CGI.parse(@uri.query)
-    sorted_params = params.to_h { |key, values| [key, values.first] }
+    sorted_params = params.transorm_values { |key, values| [key, values.first] }
     sorted_params.sort.to_h
   end
 
@@ -37,7 +37,7 @@ class Url
 
   def ==(other)
     return false unless other.is_a?(Url)
-    
+
     self.sorted_params == other.sorted_params
   end
 
