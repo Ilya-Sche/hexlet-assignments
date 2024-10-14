@@ -23,10 +23,21 @@ class Url
   end
 
   include Comparable
+  def sorted_params
+    return {} unless uri.query
+
+    params = CGI.parse(uri.query)
+    sorted_params = params.map { |key, values| [key, values.first] }.to_h
+    sorted_params.sort.to_h
+  end
+
+  def to_s
+    uri.to_s
+  end
+
   def ==(other)
     return false unless other.is_a?(Url)
-
-    @uri.to_s == other.instance_variable_get(:@uri).to_s
+    self.sorted_params == other.sorted_params
   end
 
   def <=>(other)
@@ -36,3 +47,4 @@ class Url
   end
 end
 # END
+
