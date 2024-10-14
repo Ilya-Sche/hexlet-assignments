@@ -15,7 +15,7 @@ class Url
   def query_params
     return {} unless @uri.query
 
-    CGI.parse(@uri.query).transform_keys(&:to_sym).transform_values { |v| v.size > 1 ? v : v.first }
+    CGI.parse(@uri.query).transform_keys(&:to_sym).transform_values |v| v.size > 1 ? v : v.first
   end
 
   def query_param(key, default = nil)
@@ -25,6 +25,7 @@ class Url
   include Comparable
   def sorted_params
     return {} unless @uri.query
+
     params = CGI.parse(@uri.query)
     sorted_params = params.transform_values(&:first)
     sorted_params.sort.to_h
