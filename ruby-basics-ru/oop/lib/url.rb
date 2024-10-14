@@ -24,7 +24,7 @@ class Url
 
   include Comparable
   def sorted_params
-    return {} unless uri.query
+    return {} unless @uri.query
 
     params = CGI.parse(uri.query)
     sorted_params = params.map { |key, values| [key, values.first] }.to_h
@@ -32,7 +32,7 @@ class Url
   end
 
   def to_s
-    uri.to_s
+    @uri.to_s
   end
 
   def ==(other)
