@@ -2,7 +2,6 @@
 
 # BEGIN
 require 'date'
-require_relative '../lib/post'
 
 module Model
   def initialize(attributes)
@@ -18,7 +17,6 @@ module Model
 end
 
 class Post
-
   include Model
 
   def initialize(**kwargs)
@@ -33,6 +31,4 @@ class Post
     end
   end
 end
-
 # END
-
