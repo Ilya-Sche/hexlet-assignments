@@ -19,7 +19,7 @@ end
 class Post
   include Model
 
-  def initialize(**kwargs)
+  def initialize()
     kwargs.each do |attribute_name, attribute_value|
       instance_variable_set "@#{attribute_name}", attribute_value
       self.class.define_method attribute_name do
