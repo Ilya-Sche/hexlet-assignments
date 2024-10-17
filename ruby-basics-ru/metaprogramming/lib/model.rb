@@ -8,13 +8,15 @@ module Model
     @attributes = attributes
   end
   def attribute(name, type: nil)
-
-  value = instance_variable_get("@#{name}")
+    value = instance_variable_get("@#{name}")
   return value if type.nil?
+  
     type.parse(value)
   end
 end
+
 class Post
+
   include Model
 
   def initialize(**kwargs)
