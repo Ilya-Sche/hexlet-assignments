@@ -2,6 +2,7 @@
 
 # BEGIN
 require 'date'
+require_relative '../lib/post'
 
 module Model
   def initialize(attributes)
