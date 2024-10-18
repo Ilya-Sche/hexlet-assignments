@@ -29,8 +29,11 @@ module Model
       define_singleton_method(name) do
         value = instance_variable_get("@#{name}")
         type = attrs[:type]
-        if type == DateTime
-          DateTime.parse(value)
+        case type
+        when :datetime
+          DateTime.parse(value) unless value.nil?
+        when :boolean
+          !!value
         else
           value
         end
@@ -59,4 +62,4 @@ module Model
     end
   end
 end
-# END
+#END
