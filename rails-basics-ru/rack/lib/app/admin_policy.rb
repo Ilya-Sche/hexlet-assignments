@@ -9,10 +9,9 @@ class AdminPolicy
     # BEGIN
     req = Rack::Request.new(env)
 
-    if req.path.start_with?('/admin')
-      return [403, { 'Content-Type' => 'text/plain' }, []]
-    end
-      @app.call(env)
+    return [403, { 'Content-Type' => 'text/plain' }, []] if req.path.start_with?('/admin')
+
+    @app.call(env)
     # END
   end
 end
