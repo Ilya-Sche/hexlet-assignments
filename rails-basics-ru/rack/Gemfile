@@ -9,7 +9,7 @@ gem 'rack-heartbeat'
 gem 'rack-minitest'
 gem 'rack-unreloader'
 gem 'rackup'
-gem 'rake'
+gem 'rake', '>= 13.2.1'
 gem 'rexml'
 gem 'thin'
 
