@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @articles = Article.find(params[:id])
+    puts params.inspect
+    @article = Article.find(params[:id])
   end
 end
