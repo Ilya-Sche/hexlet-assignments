@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'rails/test_help'
 
 class TasksController < ApplicationController
   def index
