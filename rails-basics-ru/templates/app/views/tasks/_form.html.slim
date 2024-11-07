@@ -1,0 +1,27 @@
+= form_with model: @task do |form|
+  div
+    = form.label :name
+    br
+    = form.text_field :name
+    = task.errors.full_messages_for(:name).join(' ') if task.errors.present?
+  div
+    = form.label :description
+    br
+    = form.text_field :description
+  div
+    = form.label :status
+    br
+    = form.text_field :status
+    = task.errors.full_messages_for(:status).join(' ')  if task.errors.present?
+  div
+    = form.label :creator
+    br
+    = form.text_field :creator
+    = task.errors.full_messages_for(:creator).join(' ')  if task.errors.present?
+  div
+    = form.label :performer
+    br
+    = form.text_field :performer
+  div
+    = form.submit
+    br
