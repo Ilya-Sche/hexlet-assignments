@@ -1,0 +1,18 @@
+h1
+  | Post number 
+  = @post.id
+p
+  = @post.title
+p
+  = @post.body
+p
+  | Summry : 
+  = @post.summary
+p
+  | Published : 
+  = @post.published
+
+p
+  = link_to 'Edit', edit_post_path(@post)
+p
+  = button_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
