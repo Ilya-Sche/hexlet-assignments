@@ -1,0 +1,11 @@
+= simple_form_for @task do |f|
+  =f.input :name
+
+  =f.input :description
+
+  =f.collection_select :user_id, User.all, :id, :name
+
+
+  =f.collection_select :status_id, Status.all, :id, :name
+
+  =f.submit

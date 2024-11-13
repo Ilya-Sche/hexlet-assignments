@@ -1,0 +1,15 @@
+h1
+  | Task number 
+  = @task.id
+p
+  = @task.name
+p
+  = @task.description
+p
+  = @task.user.name
+p
+  = @task.status.name
+p
+  = link_to 'Edit', edit_task_path(@task)
+p
+  = button_to 'Delete', task_path(@task), method: :delete, data: { confirm: 'Are you sure?'  }
