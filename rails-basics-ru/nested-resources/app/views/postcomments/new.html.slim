@@ -1,0 +1,8 @@
+h1 New postcomment
+
+== render "form", postcomment: @postcomment, url: post_postcomments_path(@post)
+
+br
+
+div
+  = link_to "Back to postcomments", post_postcomments_path

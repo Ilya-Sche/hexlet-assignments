@@ -1,0 +1,28 @@
+- content_for :title do
+  = @post.title
+p
+  strong.me-2 Body:
+  = @post.body
+/ BEGIN
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' } body
+      th
+
+  tbody
+    - @post.postcomments.each_with_index do |postcomment, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = postcomment.body
+        td.d-flex
+          .me-4 = link_to 'Edit', edit_post_postcomment_path(@post)
+          = button_to 'Destroy', post_postcomment_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'link-danger'
+/ END
+hr
+
+.d-flex
+  = link_to 'Add comment', new_post_postcomment_path(@post), class: 'btn btn-outline-primary me-2'
+  = link_to 'Edit', edit_post_path(@post), class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'

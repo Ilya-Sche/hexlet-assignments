@@ -1,0 +1,9 @@
+h1 Editing postcomment
+
+== render "form", postcomment: @postcomment, url: edit_post_postcomment_path(@postcomment)
+
+br
+
+div
+
+  =< link_to "Back", post_path(@postcomment.post)
