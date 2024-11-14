@@ -5,6 +5,6 @@ p style="color: green" = notice
 div
   => link_to "Edit this postcomment", edit_postcomment_path(@postcomment)
   '|
-  =< link_to "Back to postcomments", post_postcomments_path
+  =< link_to "Back to postcomments", post_path(@post)
 
   = button_to "Destroy this postcomment", @postcomment, method: :delete

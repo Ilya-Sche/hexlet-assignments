@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   # BEGIN
   resources :posts do
-    resources :postcomments
+    resources :postcomments, only: %i[index new create]
+  end
+
+  resources :posts, shallow: true do
+    resources :postcomments, only: %i[edit update show destroy]
   end
   # END
 end

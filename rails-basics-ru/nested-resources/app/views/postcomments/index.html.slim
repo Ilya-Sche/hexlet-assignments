@@ -6,6 +6,6 @@ h1 Postcomments
   - @postcomments.each do |postcomment|
     == render postcomment
     p
-      = link_to "Show this postcomment", post_postcomment(@postcomment)
+      = link_to "Show this postcomment", postcomment(@postcomment)
 
-= link_to "New postcomment", new_postcomment_path
+= link_to "New postcomment", new_post_postcomment_path

@@ -40,7 +40,7 @@ class PostcommentsController < ApplicationController
   def update
     respond_to do |format|
       if @postcomment.update(postcomment_params)
-        format.html { redirect_to @postcomment, notice: "Postcomment was successfully updated." }
+        format.html { redirect_to post_path(@post), notice: "Postcomment was successfully updated." }
         format.json { render :show, status: :ok, location: @postcomment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class PostcommentsController < ApplicationController
     @postcomment.destroy!
 
     respond_to do |format|
-      format.html { redirect_to post_postcomments_path, status: :see_other, notice: "Postcomment was successfully destroyed." }
+      format.html { redirect_to post_path(@post), status: :see_other, notice: "Postcomment was successfully destroyed." }
       format.json { head :no_content }
     end
   end
