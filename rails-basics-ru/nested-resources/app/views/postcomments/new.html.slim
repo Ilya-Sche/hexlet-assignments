@@ -1,8 +1,7 @@
-h1 New postcomment
+h1 Новый комментарий
 
-== render "form", postcomment: @postcomment, url: post_postcomments_path(@post)
+= render 'form', model: @postcomment, url: post_postcomments_path(@post)
 
 br
 
-div
-  = link_to "Back to postcomments", post_postcomments_path
+= link_to 'Назад к посту', post_path(@post), class: 'btn btn-link'

@@ -3,7 +3,7 @@
 p
   strong.me-2 Body:
   = @post.body
-/ BEGIN
+
 table.table.table-striped.table-hover.mb-5
   thead
     tr
@@ -12,14 +12,14 @@ table.table.table-striped.table-hover.mb-5
       th
 
   tbody
-    - @post.postcomments.each_with_index do |postcomment, i|
+    - @post.postcomments.each do |postcomment|
       tr
-        th{ scope = 'row' } = i + 1
         td = postcomment.body
+        
         td.d-flex
-          .me-4 = link_to 'Edit', edit_postcomment_path(@post)
-          = button_to 'Destroy', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'link-danger'
-/ END
+          .me-4 = link_to 'Edit', edit_post_postcomment_path(@post, postcomment)
+          = link_to 'Destroy', post_postcomment_path(@post, postcomment), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'link-danger'
+
 hr
 
 .d-flex

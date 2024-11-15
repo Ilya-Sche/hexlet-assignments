@@ -1,48 +1,45 @@
-require "test_helper"
+# require "test_helper"
 
 class PostcommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @postcomment = postcomments(:one)
+    @post = posts(:one) # создаем пост, к которому будет привязан комментарий
+    @postcomment = @post.postcomments.first # используем первый комментарий этого поста
   end
 
-  test "should get index" do
-    get postcomments_url
+  test 'should get index' do
+    get post_postcomments_url(@post)
     assert_response :success
   end
 
-  test "should get new" do
-    get new_postcomment_url
+  test 'should get new' do
+    get new_post_postcomment_url(@post)
     assert_response :success
   end
 
-  test "should create postcomment" do
-    assert_difference("Postcomment.count") do
-      post postcomments_url, params: { postcomment: { body: @postcomment.body, post_id: @postcomment.post_id } }
+  test 'should create postcomment' do
+    assert_difference('Postcomment.count') do
+      post post_postcomments_url(@post), params: { postcomment: { body: 'New Comment', post_id: @post.id } }
     end
 
-    assert_redirected_to postcomment_url(Postcomment.last)
+    assert_redirected_to post_url(@post)
   end
 
-  test "should show postcomment" do
-    get postcomment_url(@postcomment)
+  test 'should get edit' do
+    get edit_post_postcomment_url(@post, @postcomment)
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_postcomment_url(@postcomment)
-    assert_response :success
+  test 'should update postcomment' do
+    patch post_postcomment_url(@post, @postcomment),
+          params: { postcomment: { body: 'Updated Comment', post_id: @post.id } }
+    assert_redirected_to post_url(@post)
   end
 
-  test "should update postcomment" do
-    patch postcomment_url(@postcomment), params: { postcomment: { body: @postcomment.body, post_id: @postcomment.post_id } }
-    assert_redirected_to postcomment_url(@postcomment)
-  end
-
-  test "should destroy postcomment" do
-    assert_difference("Postcomment.count", -1) do
-      delete postcomment_url(@postcomment)
+  test 'should destroy postcomment' do
+    assert_difference('Postcomment.count', -1) do
+      delete post_postcomment_url(@post, @postcomment)
     end
 
-    assert_redirected_to postcomments_url
+    assert_redirected_to post_url(@post)
   end
 end

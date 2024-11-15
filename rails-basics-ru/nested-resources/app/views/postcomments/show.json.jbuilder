@@ -1,1 +1,1 @@
-json.partial! "postcomments/postcomment", postcomment: @postcomment
+json.partial! 'postcomments/postcomment', postcomment: @postcomment

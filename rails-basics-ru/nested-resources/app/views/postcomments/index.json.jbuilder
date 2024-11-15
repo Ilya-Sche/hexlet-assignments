@@ -1,1 +1,1 @@
-json.array! @postcomments, partial: "postcomments/postcomment", as: :postcomment
+json.array! @postcomments, partial: 'postcomments/postcomment', as: :postcomment
