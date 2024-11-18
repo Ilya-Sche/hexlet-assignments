@@ -1,0 +1,16 @@
+en:
+  welcome_title: Home page
+  home_path: Home
+
+
+  posts_attr:
+    show: Show
+    edit: Edit
+    destroy: Delete
+    destroy_confirmation: Are you sure?
+    back: Back
+
+
+  footer:
+    hexlet_title: © Hexlet, %{year}
+    hexlet_logo: Hexlet

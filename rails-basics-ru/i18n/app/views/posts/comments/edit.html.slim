@@ -1,0 +1,11 @@
+
+= content_for :title do
+  = t('comments.edit.title')
+
+== render 'form', model: @comment, url: post_comment_path(@resource_post)
+
+hr
+
+.d-flex
+
+  = link_to t('posts_attr.back'), :back, class: 'btn btn-outline-primary'

@@ -1,0 +1,23 @@
+en:
+  posts:
+    # BEGIN
+      all: Posts
+      post_title: Title
+      post_body: Body
+      table_title: Posts Table
+      new_post: New Post
+      post_created: Post was created.
+      post_updated: Post was updated.
+      post_deleted: Post was destroyed.
+      create_post: Create Post
+      edit_post : Editing post
+
+  comments:
+    new_comment: Create comment
+    comments_list: Comments
+    edit:
+      title: Editing comment
+    create:
+      success: Comment was created.
+    update:
+      success: Comment was updated.

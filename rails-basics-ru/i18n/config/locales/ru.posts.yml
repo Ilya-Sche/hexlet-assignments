@@ -1,0 +1,28 @@
+---
+ru:
+  posts:
+    # BEGIN
+    all: Посты
+    post_title: Заголовок
+    post_body: Содержание
+    table_title: Таблица с постами
+    new_post: Новый пост
+    post_created: Пост создан.
+    post_updated: Пост обновлен.
+    post_deleted: Пост удален.
+    create_post: Создать Пост
+    edit_post : Редактирование Поста
+
+    # END
+
+
+
+  comments:
+    new_comment: Создать комментарий
+    comments_list: Комментарии
+    edit:
+      title: Изменить комментарий
+    create:
+      success: Комментарий создан.
+    update:
+      success: Комментарий обновлен.

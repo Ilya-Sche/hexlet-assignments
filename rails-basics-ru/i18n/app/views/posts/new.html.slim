@@ -1,0 +1,10 @@
+= content_for :title do
+  = t('posts.new_post') 
+
+hr
+
+== render 'form', post: @post, url: posts_path
+
+hr
+
+= link_to t('posts_attr.back'), :back, class: 'btn btn-outline-primary'

@@ -1,0 +1,9 @@
+= form_with(model: @comment, url: url) do |form|
+
+
+  div
+    = form.label :body, style: "display: block"
+    = form.text_area :body
+
+  div
+    = form.submit t('comments.new_comment')

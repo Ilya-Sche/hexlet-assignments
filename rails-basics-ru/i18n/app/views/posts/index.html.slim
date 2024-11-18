@@ -1,0 +1,43 @@
+- content_for :title do
+  / page title (h1)
+  / BEGIN
+  = t('posts.all.')
+  / END
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' }
+        / table title
+        / BEGIN
+        = t('posts.table_title')
+        / END
+      th
+      th
+
+  tbody
+    - @posts.each_with_index do |post, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = post.title
+        td
+          / comments count
+          / BEGIN
+          td
+           = "#{post.comments.count} #{t('activerecord.models.comment', count: post.comments.count)}"
+
+          / END
+        td.d-flex
+          = link_to t('posts_attr.show'), post_path(post), class: 'me-2'
+
+          = link_to t('posts_attr.edit'), edit_post_path(post), class: 'me-2'
+
+          = button_to t('posts_attr.destroy'), post_path(post), method: :delete, data: { turbo_confirm: t('posts_attr.destroy_confirmation') }, class: 'link-danger'
+
+/ new post link
+
+  / BEGIN
+= link_to new_post_path, id: 'new-post-link', class: 'btn btn-primary' do
+  = t('posts.new_post')
+  / END

@@ -1,0 +1,15 @@
+ru:
+  welcome_title: Домашняя страница
+  home_path: Домой
+
+
+  posts_attr:
+    show: Посмотреть
+    edit: Редактировать
+    destroy: Удалить
+    destroy_confirmation: Вы уверенны?
+    back: Назад
+
+  footer:
+    hexlet_title: © Хекслет, %{year}
+    hexlet_logo: Хекслет 

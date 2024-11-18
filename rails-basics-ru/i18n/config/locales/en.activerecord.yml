@@ -1,0 +1,27 @@
+en:
+  activerecord:
+    models:
+      # BEGIN
+      comment:
+        one: Comment
+        few: Comments
+        many: Comments
+        other: Comments
+      # END
+
+    attributes:
+      # BEGIN
+      title: Title 
+      # END
+
+
+    errors:
+      models:
+        post:
+          attributes:
+            # BEGIN
+            title:
+              blank: should be filled
+            body:
+              blank: should be filled
+            # END
