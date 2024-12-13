@@ -9,13 +9,12 @@
 
   hr
 
-  h3 Educations
-  #educations
+  h3.my-4 = 'Education'
+  #education
     = f.simple_fields_for :educations do |education|
       = render 'education_fields', f: education
-    .links
-      = link_to_add_association t('.add_education'), f, :educations
-  = f.submit
+    .links.my-1
+      = link_to_add_association 'Add education item', f, :educations
 
   h3.my-4 = 'Work'
   #work

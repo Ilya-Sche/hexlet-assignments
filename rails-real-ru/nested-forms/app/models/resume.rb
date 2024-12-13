@@ -5,8 +5,8 @@ class Resume < ApplicationRecord
   validates :contact, presence: true
 
   # BEGIN
-  has_many :works, class_name: 'ResumeWork'
-  has_many :educations, class_name: 'ResumeEducation'
+  has_many :works, class_name: 'ResumeWork', dependent: :destroy
+  has_many :educations, class_name: 'ResumeEducation', dependent: :destroy
 
   accepts_nested_attributes_for :works
   accepts_nested_attributes_for :educations
