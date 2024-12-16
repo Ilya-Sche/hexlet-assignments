@@ -3,14 +3,13 @@
 class PostsController < ApplicationController
   after_action :verify_authorized, except: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
-
   # BEGIN
+attr_reader :user
   def index
     @posts = Post.all
   end
 
   def show
-    authorize @post
   end
   
   def new
@@ -19,6 +18,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    if current_user.nil?
+      raise Pundit::NotAuthorizedError
+    end
     @post = current_user.posts.build(post_params)
     authorize @post
     if @post.save
